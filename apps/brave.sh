@@ -59,6 +59,9 @@ sudo /usr/libexec/PlistBuddy -c "Add :AutofillPaymentCardBenefits bool false" "$
 sudo /usr/libexec/PlistBuddy -c "Add :HighEfficiencyModeEnabled bool true" "$PLIST"
 sudo /usr/libexec/PlistBuddy -c "Add :BatterySaverModeAvailability integer 1" "$PLIST"
 
+# Disable local network scanning (prevents "find devices on local network" prompt)
+sudo /usr/libexec/PlistBuddy -c "Add :EnableMediaRouter bool false" "$PLIST"
+
 # Clear macOS preference cache
 sudo killall cfprefsd 2>/dev/null
 
