@@ -1,0 +1,33 @@
+{
+  // Import management
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // Clean, minimal UI (Krishnamurti inspired)
+  "editor.minimap.enabled": false,
+  "workbench.sideBar.location": "left",
+  "editor.renderWhitespace": "selection",
+  "explorer.openEditors.visible": 1,
+  "workbench.startupEditor": "none",
+  "window.zoomLevel": 1,
+  "workbench.editor.showTabs": "single",
+  "workbench.activityBar.location": "hidden",
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+
+  // Disable Chat/AI sidebar
+  "chat.commandCenter.enabled": false,
+  "chat.restoreLastPanelSession": false,
+  "chat.viewWelcome.enabled": false,
+
+  // Privacy
+  "telemetry.telemetryLevel": "off",
+
+  // Editor
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+}

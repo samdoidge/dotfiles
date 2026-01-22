@@ -1,0 +1,95 @@
+# ============================================
+# .gitconfig - Git Configuration
+# ============================================
+# Update [user] section with your details!
+# ============================================
+
+[user]
+	name = YOUR_NAME
+	email = YOUR_EMAIL
+    # Uncomment for signed commits (add key to GitHub as Signing Key first):
+    # signingkey = ~/.ssh/id_ed25519.pub
+
+# [gpg]
+#     format = ssh
+
+# [commit]
+#     gpgsign = true
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = code --wait
+    autocrlf = input
+
+[alias]
+    # Status & Info
+    s = status
+    ss = status -sb
+    l = log --oneline -20
+    lg = log --graph --oneline --decorate -20
+    last = log -1 HEAD --stat
+
+    # Branching
+    co = checkout
+    cob = checkout -b
+    b = branch
+    bd = branch -d
+    bD = branch -D
+
+    # Staging & Commits
+    a = add
+    aa = add -A
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+
+    # Push & Pull
+    p = push
+    pf = push --force-with-lease
+    pl = pull
+
+    # Diff
+    d = diff
+    dc = diff --cached
+    ds = diff --stat
+
+    # Stash
+    st = stash
+    stp = stash pop
+    stl = stash list
+
+    # Undo
+    unstage = reset HEAD --
+    undo = reset --soft HEAD~1
+    discard = checkout --
+
+    # Cleanup
+    cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d"
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[diff]
+    algorithm = histogram
+    colorMoved = default
+
+[merge]
+    conflictstyle = diff3
+
+[rerere]
+    enabled = true
+
+[color]
+    ui = auto
+
+[help]
+    autocorrect = 10
