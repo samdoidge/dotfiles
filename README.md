@@ -1,87 +1,125 @@
 # Dotfiles
 
-Privacy-first, high-performance Mac setup for Python / JavaScript development with Docker.
+Privacy-first Mac setup for development.
 
-## Quick Start (New Mac)
+## Quick Start
 
 ```bash
 git clone https://github.com/samdoidge/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-chmod +x install.sh
 ./install.sh
 ```
 
-## What's Included
+## Structure
 
-| File | Purpose |
-|------|---------|
-| `Brewfile` | All packages and apps |
-| `.zshrc` | Shell configuration and aliases |
-| `.gitconfig` | Git settings and aliases |
-| `macos.sh` | macOS system preferences |
-| `dock.sh` | Dock layout |
-| `install.sh` | Master setup script |
+```
+~/.dotfiles/
+├── apps/
+│   ├── brave.sh          # Browser privacy policies
+│   └── vscodium/         # Editor settings
+├── macos/
+│   ├── defaults.sh       # System preferences
+│   └── dock.sh           # Dock layout
+├── shell/
+│   ├── .zshrc            # Shell config
+│   └── .gitconfig        # Git config
+├── install.sh
+└── Brewfile
+```
 
 ## Tools
 
 | Purpose | Tool | Why |
 |---------|------|-----|
-| Terminal | Ghostty | Fast, native, minimal |
+| Terminal | Ghostty | Fast, native |
 | Editor | VSCodium | VS Code without telemetry |
-| Browser | Brave | Chromium-based, blocks trackers |
-| Docker | Colima | No telemetry, lightweight |
-| Python Env | uv | Fast Python env tool. |
-| AI | Claude Code | Best available AI tool currently. |
-| Windows | Rectangle | Keyboard-driven layout |
-| DNS | Cloudflare 1.1.1.1 | Fastest, private, no logging |
-| Passwords | Bitwarden | Open-source |
+| Browser | Brave | Privacy policies enforced |
+| Docker | Colima | No telemetry |
+| Python | uv | Fast environment manager |
+| AI | Claude Code | Best AI coding tool |
+| Windows | Rectangle | Keyboard-driven |
+| DNS | Cloudflare | 1.1.1.1, no logging |
 
-## Key Aliases
+## Privacy
+
+**macOS:**
+- Siri, analytics, ad tracking disabled
+- Spotlight suggestions disabled
+- Firewall + stealth mode enabled
+- Handoff disabled
+
+**Brave (managed policies):**
+- Leo AI, Rewards, Wallet, VPN disabled
+- Autofill disabled
+- Third-party cookies blocked
+- WebRTC IP leak prevented
+- Telemetry disabled
+
+**Shell:**
+- Telemetry opt-outs for npm, Python, cloud tools
+
+## Aliases
 
 | Alias | Action |
 |-------|--------|
-| `c` | Claude Code (no permission prompts) |
+| `c` | Claude Code |
 | `up` | Update all tools |
 | `sync` | Pull dotfiles and update |
+| `code` | VSCodium |
 
-## Privacy Features
+## Post-Install Setup
 
-- Homebrew analytics disabled
-- macOS analytics disabled
-- Siri disabled
-- Ad tracking disabled
-- Telemetry environment variables set
-- VSCodium over VS Code
-- Colima over Docker Desktop
-- Brave with shields up
+### 1. Git identity
+Edit `~/.dotfiles/shell/.gitconfig`:
+```
+[user]
+    name = Your Name
+    email = your@email.com
+```
+
+### 2. SSH key (auth + signing)
+```bash
+# Generate key
+ssh-keygen -t ed25519 -C "your@email.com"
+
+# Add to Keychain (enter passphrase once)
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
+# Auto-load config
+cat >> ~/.ssh/config << 'EOF'
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
+EOF
+
+# Copy for GitHub
+cat ~/.ssh/id_ed25519.pub | pbcopy
+```
+
+Add to GitHub **twice** (Settings → SSH keys):
+- As **Authentication Key**
+- As **Signing Key**
+
+### 3. Enable commit signing
+Uncomment in `.gitconfig`:
+```
+signingkey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
+```
+
+### 4. Manual steps
+- **Rectangle**: Grant accessibility permissions
+- **Brave**: Set as default browser (System Settings → Desktop & Dock)
 
 ## Maintenance
 
-### Update everything
 ```bash
-up
+up      # Update brew, npm, Claude Code
+sync    # Pull dotfiles, run brew bundle
 ```
-
-### Sync dotfiles changes
-```bash
-sync
-```
-
-### Add new packages
-1. Edit `Brewfile`
-2. Run `brew bundle`
-3. Commit and push
-
-## Manual Setup Required
-
-After running `install.sh`:
-
-1. **Git config**: Edit `~/.dotfiles/.gitconfig` with your name/email
-2. **SSH key**: Generate and add to GitHub
-3. **Rectangle**: Grant accessibility permissions
-5. **Bitwarden**: Sign in
-6. **Brave**: Set as default browser
-
-## License
-
-MIT

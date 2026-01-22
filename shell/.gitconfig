@@ -5,10 +5,10 @@
 # ============================================
 
 [user]
-	name = YOUR_NAME
-	email = YOUR_EMAIL
+	name = Your Name
+	email = your@email.com
     # Uncomment for signed commits (add key to GitHub as Signing Key first):
-    # signingkey = ~/.ssh/id_ed25519.pub
+#     signingkey = ~/.ssh/id_ed25519.pub
 
 # [gpg]
 #     format = ssh
