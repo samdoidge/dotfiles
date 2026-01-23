@@ -110,8 +110,8 @@ export ADBLOCK=1
 # ============================================
 # HISTORY
 # ============================================
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=50000
+export SAVEHIST=50000
 export HISTFILE=~/.zsh_history
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
