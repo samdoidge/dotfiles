@@ -47,6 +47,18 @@ brew analytics off
 # ============================================
 echo ""
 echo "Installing packages from Brewfile..."
+
+# Fix potential claude-code conflicts (npm vs homebrew cask)
+# This handles "already a binary at" errors
+if [ -f /opt/homebrew/bin/claude ] && [ ! -L /opt/homebrew/bin/claude ]; then
+    echo "Removing conflicting claude binary..."
+    rm -f /opt/homebrew/bin/claude
+fi
+if command -v npm &> /dev/null && npm list -g @anthropic-ai/claude-code &> /dev/null; then
+    echo "Removing npm-installed claude-code (using Homebrew cask instead)..."
+    npm uninstall -g @anthropic-ai/claude-code 2>/dev/null || true
+fi
+
 brew bundle --file=~/.dotfiles/Brewfile || echo "Some packages may have warnings (usually safe to ignore)"
 
 # ============================================
