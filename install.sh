@@ -52,9 +52,7 @@ brew bundle --file=~/.dotfiles/Brewfile || echo "Some packages may have warnings
 # ============================================
 # CLAUDE CODE
 # ============================================
-echo ""
-echo "Installing Claude Code..."
-npm install -g @anthropic-ai/claude-code
+# Installed via Brewfile (cask "claude-code")
 
 # ============================================
 # LINK DOTFILES

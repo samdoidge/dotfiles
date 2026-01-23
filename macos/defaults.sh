@@ -60,6 +60,41 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
   '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 
+# ===== SAFARI PRIVACY =====
+echo "Applying Safari privacy settings..."
+
+# Send Do Not Track header
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+# Disable search suggestions (sends queries to Apple)
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# Disable preloading top hit (leaks browsing intent)
+defaults write com.apple.Safari PreloadTopHit -bool false
+
+# Block cross-site tracking
+defaults write com.apple.Safari BlockStoragePolicy -int 2
+defaults write com.apple.Safari WebKitStorageBlockingPolicy -int 1
+
+# Disable AutoFill (keep passwords for Apple Passwords app)
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+
+# Warn about fraudulent websites (keep enabled for security)
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
+
+# Disable Safari suggestions in search bar
+defaults write com.apple.Safari ShowFavoritesUnderSmartSearchField -bool false
+
+# Hide frequently visited sites
+defaults write com.apple.Safari ShowFrequentlyVisitedSites -bool false
+
+# Performance / Energy
+defaults write com.apple.Safari CanPromptForPushNotifications -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool false
+
 # ===== FIREWALL =====
 echo "Enabling firewall..."
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
