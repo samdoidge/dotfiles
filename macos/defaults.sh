@@ -93,6 +93,15 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # ============================================
+# ICLOUD
+# ============================================
+echo "Applying iCloud settings..."
+
+# Disable Desktop & Documents sync (keep local control)
+defaults write com.apple.finder FXICloudDriveDesktop -bool false
+defaults write com.apple.finder FXICloudDriveDocuments -bool false
+
+# ============================================
 # FINDER
 # ============================================
 echo "Applying Finder settings..."

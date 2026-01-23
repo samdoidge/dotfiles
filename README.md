@@ -38,7 +38,9 @@ cd ~/.dotfiles
 | Python | uv | Fast environment manager |
 | AI | Claude Code | Best AI coding tool |
 | Windows | Rectangle | Keyboard-driven |
+| VPN | Proton VPN | Free tier, Swiss, no-logs |
 | DNS | Cloudflare | 1.1.1.1, no logging |
+| Notes | Obsidian | Local-first, iCloud sync |
 
 ## Privacy
 
@@ -113,9 +115,18 @@ signingkey = ~/.ssh/id_ed25519.pub
     gpgsign = true
 ```
 
-### 4. Manual steps
+### 4. iCloud setup
+Sign into iCloud, then:
+- Enable **iCloud Drive** (apps sync automatically)
+- Keep **Desktop & Documents** off (enforced by defaults.sh)
+- Optional: Enable "Optimize Mac Storage"
+
+Obsidian vault syncs via iCloud automatically once signed in.
+
+### 5. Manual steps
 - **Rectangle**: Grant accessibility permissions
 - **Brave**: Set as default browser (System Settings → Desktop & Dock)
+- **Proton VPN**: Sign in (free account works)
 
 ## Maintenance
 

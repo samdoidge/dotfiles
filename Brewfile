@@ -38,6 +38,7 @@ cask "rectangle"              # Window management
 # ============================================
 # Privacy
 # ============================================
+cask "protonvpn"              # Free, no-logs VPN (Swiss)
 # DNS configured in macos.sh (Cloudflare 1.1.1.1)
 
 # ============================================
