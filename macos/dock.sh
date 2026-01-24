@@ -33,7 +33,7 @@ dockutil --add '' --type spacer --section apps --no-restart
 
 # Utilities
 dockutil --add /System/Applications/System\ Settings.app --no-restart
-dockutil --add /Applications/Bitwarden.app --no-restart
+# dockutil --add /Applications/Bitwarden.app --no-restart
 
 # Optional: Add Downloads folder (uncomment if wanted)
 # dockutil --add ~/Downloads --view fan --display folder --no-restart

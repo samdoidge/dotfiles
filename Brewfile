@@ -10,12 +10,10 @@
 brew "git"                    # Version control
 brew "gh"                     # GitHub CLI
 brew "uv"                     # Python environment
-brew "node"                   # Node.js (for Claude Code)
 brew "colima"                 # Docker runtime (no telemetry)
 brew "docker"                 # Docker CLI
 brew "docker-compose"         # Docker Compose
 brew "dockutil"               # Dock management
-brew "defaultbrowser"         # Set default browser via CLI
 
 # ============================================
 # Terminal & Editor
