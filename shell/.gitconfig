@@ -1,20 +1,13 @@
 # ============================================
 # .gitconfig - Git Configuration
 # ============================================
-# Update [user] section with your details!
+# Personal info (name, email, signing key) goes in ~/.gitconfig.local
+# which is NOT tracked in git - no more stashing on pull!
 # ============================================
 
-[user]
-	name = Your Name
-	email = your@email.com
-    # Uncomment for signed commits (add key to GitHub as Signing Key first):
-#     signingkey = ~/.ssh/id_ed25519.pub
-
-# [gpg]
-#     format = ssh
-
-# [commit]
-#     gpgsign = true
+# Include personal config (name, email, signing key)
+[include]
+    path = ~/.gitconfig.local
 
 [init]
     defaultBranch = main

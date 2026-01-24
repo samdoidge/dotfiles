@@ -22,7 +22,8 @@ cd ~/.dotfiles
 │   └── dock.sh           # Dock layout
 ├── shell/
 │   ├── .zshrc            # Shell config
-│   └── .gitconfig        # Git config
+│   ├── .gitconfig        # Git config (shared)
+│   └── .gitconfig.local.template  # Personal git config template
 ├── install.sh
 └── Brewfile
 ```
@@ -72,7 +73,7 @@ cd ~/.dotfiles
 ## Post-Install Setup
 
 ### 1. Git identity
-Edit `~/.dotfiles/shell/.gitconfig`:
+Edit `~/.gitconfig.local` (created by install.sh, not tracked in git):
 ```
 [user]
     name = Your Name
@@ -103,8 +104,8 @@ Add to GitHub **twice** (Settings → SSH keys):
 - As **Authentication Key**
 - As **Signing Key**
 
-### 3. Enable commit signing
-Uncomment in `.gitconfig`:
+### 3. Enable commit signing (optional)
+Uncomment in `~/.gitconfig.local`:
 ```
 signingkey = ~/.ssh/id_ed25519.pub
 
@@ -115,10 +116,13 @@ signingkey = ~/.ssh/id_ed25519.pub
     gpgsign = true
 ```
 
+**Note:** If using Claude Code / AI tools to make commits, leave signing disabled or they'll fail.
+
 ### 4. iCloud setup
 Sign into iCloud, then:
 - Enable **iCloud Drive** (apps sync automatically)
 - Keep **Desktop & Documents** off (enforced by defaults.sh)
+- Disable sync for apps you don't need: **System Settings → Apple ID → iCloud → Show More Apps** (toggle off Notes, Stocks, Home, etc.)
 - Optional: Enable "Optimize Mac Storage"
 
 Obsidian vault syncs via iCloud automatically once signed in.
@@ -126,6 +130,7 @@ Obsidian vault syncs via iCloud automatically once signed in.
 ### 5. Manual steps
 - **Rectangle**: Grant accessibility permissions
 - **Brave**: Set as default browser (System Settings → Desktop & Dock)
+- **Brave**: Hide sidebar (Settings → Appearance → Show sidebar button → off)
 - **Proton VPN**: Sign in (free account works)
 
 ## Maintenance

@@ -1,0 +1,19 @@
+# ============================================
+# .gitconfig.local - Personal Git Config
+# ============================================
+# This file is NOT tracked in git.
+# Copy to ~/.gitconfig.local and fill in your details.
+# ============================================
+
+[user]
+    name = Your Name
+    email = your@email.com
+
+# Uncomment for signed commits (add key to GitHub as Signing Key first):
+#   signingkey = ~/.ssh/id_ed25519.pub
+
+# [gpg]
+#     format = ssh
+
+# [commit]
+#     gpgsign = true

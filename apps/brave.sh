@@ -59,6 +59,9 @@ sudo /usr/libexec/PlistBuddy -c "Add :AutofillPaymentCardBenefits bool false" "$
 sudo /usr/libexec/PlistBuddy -c "Add :HighEfficiencyModeEnabled bool true" "$PLIST"
 sudo /usr/libexec/PlistBuddy -c "Add :BatterySaverModeAvailability integer 1" "$PLIST"
 
+# Note: Brave sidebar cannot be disabled via policy (Brave-specific, not Chromium).
+# Disable manually: Settings → Appearance → Show sidebar button (toggle off)
+
 # Disable local network scanning (prevents "find devices on local network" prompt)
 sudo /usr/libexec/PlistBuddy -c "Add :EnableMediaRouter bool false" "$PLIST"
 
@@ -72,3 +75,4 @@ echo ""
 echo "MANUAL STEPS REQUIRED:"
 echo "  1. Set default browser: System Settings → Desktop & Dock → Default web browser"
 echo "  2. Shields: brave://settings/shields → Aggressive, Strict HTTPS, Block fingerprinting"
+echo "  3. Hide sidebar: Settings → Appearance → Show sidebar button (toggle off)"

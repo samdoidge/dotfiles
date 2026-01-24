@@ -87,6 +87,13 @@ fi
 ln -sf ~/.dotfiles/shell/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/shell/.gitconfig ~/.gitconfig
 
+# Create .gitconfig.local from template if it doesn't exist
+if [ ! -f ~/.gitconfig.local ]; then
+    echo "Creating ~/.gitconfig.local from template..."
+    cp ~/.dotfiles/shell/.gitconfig.local.template ~/.gitconfig.local
+    echo "  → Edit ~/.gitconfig.local with your name/email"
+fi
+
 # ============================================
 # VSCODIUM CONFIG
 # ============================================
@@ -169,9 +176,11 @@ echo "============================================"
 echo "  IMPORTANT: Update Git Config!"
 echo "============================================"
 echo ""
-echo "Edit ~/.dotfiles/shell/.gitconfig and set:"
+echo "Edit ~/.gitconfig.local (NOT tracked in git) and set:"
 echo "  - name = Your Name"
 echo "  - email = your@email.com"
+echo ""
+echo "Your personal info stays local - no more stashing on pull!"
 echo ""
 
 # ============================================

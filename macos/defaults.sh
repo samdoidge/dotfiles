@@ -136,6 +136,9 @@ echo "Applying iCloud settings..."
 defaults write com.apple.finder FXICloudDriveDesktop -bool false
 defaults write com.apple.finder FXICloudDriveDocuments -bool false
 
+# Note: Per-app iCloud sync (Notes, Stocks, Home, etc.) cannot be disabled via defaults.
+# Must be toggled manually: System Settings → Apple ID → iCloud → Show More Apps
+
 # ============================================
 # FINDER
 # ============================================
