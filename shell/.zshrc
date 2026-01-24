@@ -66,7 +66,7 @@ alias la="ls -A"
 # ============================================
 # ALIASES - System
 # ============================================
-alias up="brew upgrade --cask claude-code && brew upgrade && brew cleanup && echo 'All updated!'"
+alias up="brew update && brew upgrade && brew cleanup && echo 'All updated!'"
 alias sync="cd ~/.dotfiles && git pull && brew bundle && source ~/.zshrc && echo 'Synced!'"
 alias reload="source ~/.zshrc"
 alias path='echo -e ${PATH//:/\\n}'

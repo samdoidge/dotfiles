@@ -46,6 +46,10 @@ brew analytics off
 # BREW PACKAGES
 # ============================================
 echo ""
+echo "Updating Homebrew..."
+brew update
+
+echo ""
 echo "Installing packages from Brewfile..."
 
 # Fix potential claude-code conflicts (npm vs homebrew cask)
