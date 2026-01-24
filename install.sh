@@ -71,6 +71,13 @@ brew bundle --file=~/.dotfiles/Brewfile || echo "Some packages may have warnings
 # Installed via Brewfile (cask "claude-code")
 
 # ============================================
+# GET SHIT DONE (GSD) for Claude Code
+# ============================================
+echo ""
+echo "Installing Get Shit Done (GSD) for Claude Code..."
+npx -y get-shit-done-cc --claude --global
+
+# ============================================
 # LINK DOTFILES
 # ============================================
 echo ""
@@ -224,4 +231,5 @@ echo ""
 echo "Quick commands:"
 echo "  c        - Launch Claude Code"
 echo "  up       - Update all tools"
+echo "  /gsd:help - GSD commands (inside Claude Code)"
 echo ""
