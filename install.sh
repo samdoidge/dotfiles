@@ -52,23 +52,28 @@ brew update
 echo ""
 echo "Installing packages from Brewfile..."
 
-# Fix potential claude-code conflicts (npm vs homebrew cask)
-# This handles "already a binary at" errors
-if [ -f /opt/homebrew/bin/claude ] && [ ! -L /opt/homebrew/bin/claude ]; then
-    echo "Removing conflicting claude binary..."
-    rm -f /opt/homebrew/bin/claude
-fi
-if command -v npm &> /dev/null && npm list -g @anthropic-ai/claude-code &> /dev/null; then
-    echo "Removing npm-installed claude-code (using Homebrew cask instead)..."
-    npm uninstall -g @anthropic-ai/claude-code 2>/dev/null || true
-fi
-
 brew bundle --file=~/.dotfiles/Brewfile || echo "Some packages may have warnings (usually safe to ignore)"
 
 # ============================================
-# CLAUDE CODE
+# CLAUDE CODE (direct install - always latest, no Homebrew lag)
 # ============================================
-# Installed via Brewfile (cask "claude-code")
+echo ""
+echo "Installing/updating Claude Code..."
+
+# Remove Homebrew cask version if present
+if brew list --cask claude-code &>/dev/null; then
+    echo "Removing Homebrew claude-code cask (switching to direct install)..."
+    brew uninstall --cask claude-code
+fi
+
+# Remove npm global version if present
+if command -v npm &>/dev/null && npm list -g @anthropic-ai/claude-code &>/dev/null 2>&1; then
+    echo "Removing npm-installed claude-code..."
+    npm uninstall -g @anthropic-ai/claude-code 2>/dev/null || true
+fi
+
+# Install/update via official installer
+curl -fsSL https://claude.ai/install.sh | bash
 
 # ============================================
 # GET SHIT DONE (GSD) for Claude Code

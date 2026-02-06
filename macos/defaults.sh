@@ -152,7 +152,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.3
 
 # Set dock icon size (48 = medium, 36 = small, 64 = large)
-defaults write com.apple.dock tilesize -int 56
+defaults write com.apple.dock tilesize -int 64
 
 # Don't show recent apps
 defaults write com.apple.dock show-recents -bool false

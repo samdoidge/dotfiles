@@ -22,11 +22,6 @@ cask "ghostty"                # Fast, native terminal
 cask "vscodium"               # VS Code without telemetry
 
 # ============================================
-# AI
-# ============================================
-cask "claude-code"            # AI coding assistant
-
-# ============================================
 # Browser
 # ============================================
 cask "brave-browser"          # Chromium-based, privacy-focused

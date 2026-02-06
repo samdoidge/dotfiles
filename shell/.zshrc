@@ -5,6 +5,7 @@
 # ============================================
 # PATH
 # ============================================
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # ============================================
@@ -66,7 +67,7 @@ alias la="ls -A"
 # ============================================
 # ALIASES - System
 # ============================================
-alias up="brew update && brew upgrade && brew cleanup && echo 'All updated!'"
+alias up="brew update && brew upgrade && brew cleanup && curl -fsSL https://claude.ai/install.sh | bash && echo 'All updated!'"
 alias sync="cd ~/.dotfiles && git pull && brew bundle && source ~/.zshrc && echo 'Synced!'"
 alias reload="source ~/.zshrc"
 alias path='echo -e ${PATH//:/\\n}'
