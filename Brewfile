@@ -19,7 +19,6 @@ brew "dockutil"               # Dock management
 # Terminal & Editor
 # ============================================
 cask "ghostty"                # Fast, native terminal
-# cask "zed"                  # Fast, native editor (no telemetry)
 cask "vscodium"               # VS Code without telemetry
 
 # ============================================

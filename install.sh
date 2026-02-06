@@ -115,14 +115,6 @@ mkdir -p "$VSCODIUM_DIR"
 ln -sf ~/.dotfiles/apps/vscodium/settings.json "$VSCODIUM_DIR/settings.json"
 
 # ============================================
-# ZED CONFIG (uncomment if using Zed instead of VSCodium)
-# ============================================
-# echo ""
-# echo "Setting up Zed config..."
-# mkdir -p ~/.config/zed
-# ln -sf ~/.dotfiles/apps/zed/settings.json ~/.config/zed/settings.json
-
-# ============================================
 # GHOSTTY CONFIG
 # ============================================
 echo ""
